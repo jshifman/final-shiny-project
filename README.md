@@ -11,7 +11,7 @@ https://github.com/christopherjenness/NBA-player-movement
 2) This projects is analyzes a wide range of topics in the NBA ranging from consistent players to timeout conversion. Each topic had different factors being measuered and different methods.
 https://github.com/christopherjenness/NBA-analytics
 
-3) This project is a NBA Rotation Chart
+3) This project is a NBA Rotation Chart. To shows a visual represation of who was playing for each team, each team, and any given time.
 https://naveedgol.com/NBARotationChart/
 
 What data-driven questions do you hope to answer about this domain (share at least 3)?
@@ -21,3 +21,11 @@ What data-driven questions do you hope to answer about this domain (share at lea
 - We can answer this by comparing the total or average points made per game per season and compare across different seasons
 3) How do the stats of past NBA stars (ex: Magic Johnson, Michael Jordan) compare to the stats of the NBA stars today (ex: Lebon James, Anthony Davis)
 - We can answer this by deciding the most important statistics/factors that play a role in the success of a play and compare those factors to some of the biggest players across the generations.
+
+Finding Data
+
+Player Data
+https://www.kaggle.com/drgilermo/nba-players-stats
+
+Champions Data
+https://www.kaggle.com/daverosenman/nba-finals-team-stats
