@@ -11,7 +11,7 @@ https://github.com/christopherjenness/NBA-player-movement
 2) This projects is analyzes a wide range of topics in the NBA ranging from consistent players to timeout conversion
 https://github.com/christopherjenness/NBA-analytics
 
-3)This project is a NBA Rotation Chart 
+3) This project is a NBA Rotation Chart 
 https://naveedgol.com/NBARotationChart/
 
 What data-driven questions do you hope to answer about this domain (share at least 3)?
