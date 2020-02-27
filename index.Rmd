@@ -8,8 +8,11 @@ source("summary_info.R")
 library(knitr)
 library(leaflet)
 ```
+## Introductory Paragraph
+
 Write an introductory paragraph explaining the domain/data set (feel free to borrow from the brainstorm part of the assignment)
 
+The National Basketball Assoication (NBA) has been around for almost 75 year and over the years the game of basketball has changed in my ways. The names of teams have changed, the unfiforms have changed, and even the way the game is played. For our project, we wanted to focus on
 
 
 Write a summary paragraph that includes information calculated by your summary information function
