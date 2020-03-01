@@ -14,18 +14,16 @@ runnerups <- read.csv("data/runnerupsdata.csv", stringsAsFactors = FALSE)
   The National Basketball Assoication (NBA) has been around for almost 75 year and over the years the game of basketball has changed in my ways. The names of teams have changed, the unfiforms have changed, and even the way the game is played. For our project, we wanted to focus on the gameplay patterns and stats that have stayed consistent and that have changed. The data sets that we will be using are: a shot log from the 2014-2015 season, statistics on the individual games for both teams playing in the NBA finals from 1980 to 2018, and date every player who have played in the NBA through 67 seasons.
 
 ```{r, echo=FALSE, include=FALSE}  
-stats_1980 <- tpa_and_tp(champions, runnerups, 1980)
-stats_2018 <- tpa_and_tp(champions, runnerups, 2018)
-pts_80s <- total_points(champions, runnerups, 1980, 1989)
-pts_10s <- total_points(champions, runnerups, 2010, 2018)
+stats_1980s <- tpa_tp_pts(champions, runnerups, 1980, 1989)
+stats_2018 <- tpa_tp_pts(champions, runnerups, 2018, 2018)
+stats_2010s <- tpa_tp_pts(champions, runnerups, 2010, 2018)
 ```
 
-The NBA was founded in 1946 but the 3-point field goal wasn't add until 1979. At the 1980 NBA championship game, there were only `r stats_1980$tpa` attempted 3 point field goals and out of that `r stats_1980$tpa` only 
-`r stats_1980$tp` were actually scored However, comparing those statistics to the 2018 NBA championship game, there is a dramatic difference. At 2018 championship, there were `r stats_2018$tpa` attempted 3 point field goals and `r stats_2018$tp` were made. Surprisingly, even though players have clearingly become more skilled at 3 point shoots, it hasn't made much of a difference in terms of the total points. From 1980 to 1989, the average points a team scored in a round of a championship game was `r pts_80s$pts`. Today, from 2010 to 2018, the averge points a team scores in a round is `r pts_10s$pts`. 
+The NBA was founded in 1946 but the 3-point field goal wasn't add until 1979. At the 1980 NBA championship game, there were only `r stats_1980s$tpa` attempted 3 point field goals and out of that `r stats_1980s$tpa` only 
+`r stats_1980s$tp` were actually scored However, comparing those statistics to the 2018 NBA championship game, there is a dramatic difference. At 2018 championship, there were `r stats_2018$tpa` attempted 3 point field goals and `r stats_2018$tp` were made. Surprisingly, even though players have clearingly become more skilled at 3 point shoots, it hasn't made much of a difference in terms of the total points. From 1980 to 1989, the average points a team scored in a round of a championship game was `r stats_1980s$pts`. Today, from 2010 to 2018, the averge points a team scores in a round is `r stats_2010s$pts`. 
 
 Render your table and describe pertinent observations found in it
 
 ```{r echo = FALSE}
-kable(tabel_dataframe, col.names = column_name)
 ```
 Describe the purpose of each chart (e.g., "this chart was intended to show the relationship between..."), render each chart, and describe pertinent observations found in each chart
