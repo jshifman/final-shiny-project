@@ -1,7 +1,5 @@
 library(dplyr)
 library(lintr)
-styler::style_file("summary_info.R")
-lintr::lint("summary_info.R")
 
 # 3-pointer stats:
 # TP - 3 point fields made, TPA - 3 point attempts, TPP - 3 point percentage
