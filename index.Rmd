@@ -23,12 +23,16 @@ stats_2010s <- tpa_tp_pts(champions, runnerups, 2010, 2018)
 The NBA was founded in 1946 but the 3-point field goal wasn't add until 1979. At the 1980 NBA championship game, there were only `r stats_1980s$tpa` attempted 3 point field goals and out of that `r stats_1980s$tpa` only 
 `r stats_1980s$tp` were actually scored However, comparing those statistics to the 2018 NBA championship game, there is a dramatic difference. At 2018 championship, there were `r stats_2018$tpa` attempted 3 point field goals and `r stats_2018$tp` were made. Surprisingly, even though players have clearingly become more skilled at 3 point shoots, it hasn't made much of a difference in terms of the total points. From 1980 to 1989, the average points a team scored in a round of a championship game was `r stats_1980s$pts`. Today, from 2010 to 2018, the averge points a team scores in a round is `r stats_2010s$pts`. 
 
-##Summary Table of the NBA Finals
-Render your table and describe pertinent observations found in it
+## Summary Table of the NBA Finals
+The table below breaks down data from each year's NBA finals series. All the totals are calculated from combining both the winning and losing teams.
 
 ```{r echo = FALSE}
 full_finals <- bind_rows(champions, runnerups)
-kable(summary_table(full_finals), col.names = c("Year", "Field Goal Percentage", "Field Goal Attempts", "Total Field Goal Points", "Free Throw Percentage", "Free Throw Attempts", "Total Free Throw Points", "Three Point Percentage", "Three Point Attempts", "Total Three Point Points"))
+tab <- summary_table(full_finals)
+kable(tab, col.names = c("Year", "Field Goal Percentage", "Field Goal Attempts", "Total Field Goal Points", "Free Throw Percentage", "Free Throw Attempts", "Total Free Throw Points", "Three Point Percentage", "Three Point Attempts", "Total Three Point Points"))
 ```
 
+The chart reveals an upward trend in three point attempts over the years, starting in 1980 at only 20 attempted three point shots and going all the way up to `r tab[tab$tp_attempted == max(tab$tp_attempted), "tp_attempted"]` in `r tab[tab$tp_attempted == max(tab$tp_attempted), "Year"]`. Obviously, this means more players are taking advantage of the three point shot, especially in the championships. The total three point percentage also saw a steady increase, with the highest accuracy coming from the `r tab[tab$tp_percentage == max(tab$tp_percentage), "Year"]` championship. Not only are more players taking advantage of the three point shot now, but they have become much more accurate. Interestingly, we also see a slight inverse relationship between attepted field goals and attempted three point shots. Years with more attempted three points also had comparably fewer attempted field goals. We also see that the total number of free throw attempts remained relatively stable throughtout, suggesting that the rate of fouls committed was relatively constant. One high outlier is in `r tab[tab$ft_attempted == max(tab$ft_attempted), "Year"]` with a total of `r tab[tab$ft_attempted == max(tab$ft_attempted), "ft_attempted"]` attempted free throws, which is `r tab[tab$ft_attempted == max(tab$ft_attempted), "ft_attempted"] - tab[tab$ft_attempted == sort(tab$ft_attempted, T)[2], "ft_attempted"]` more than the next highest total free throw year.
+
+## Charts
 Describe the purpose of each chart (e.g., "this chart was intended to show the relationship between..."), render each chart, and describe pertinent observations found in each chart
