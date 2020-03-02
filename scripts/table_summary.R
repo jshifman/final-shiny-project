@@ -1,27 +1,21 @@
 library(dplyr)
-styler::style_file("table_summary.R")
-lintr::lint("table_summary.R")
+library(lintr)
+library(styler)
 
-table_function <- function(dataframe, year1, year2, year3, year4, year5, year6,
-                           year7, year8, year9) {
-  table <- dataframe %>%
-    select(Year, Team, TPA, TP) %>%
+#Aggregate summary table by year of NBA finals
+summary_table <- function(df){
+  tab <- df %>%
     group_by(Year) %>%
     summarise(
-      sum_tpa = sum(TPA),
-      sum_tp = sum(TP),
-      tpp = round((sum_tp / sum_tpa), digits = 2) * 100,
-    ) %>%
-    filter(
-      Year == year1 |
-        Year == year2 |
-        Year == year3 |
-        Year == year4 |
-        Year == year5 |
-        Year == year6 |
-        Year == year7 |
-        Year == year8 |
-        Year == year9
+      fg_percentage = mean(FGP, na.rm = TRUE),
+      fg_attempted = sum(FGA, na.rm = TRUE),
+      fg_total_points = sum(FG, na.rm = TRUE) * 2,
+      ft_percentage = mean(FTP, na.rm = TRUE),
+      ft_attempted = sum(FTA, na.rm = TRUE),
+      ft_total_points = sum(FT, na.rm = TRUE),
+      tp_percentage = mean(TPP, na.rm = TRUE),
+      tp_attempted = sum(TPA, na.rm = TRUE),
+      tp_total_points = sum(TP, na.rm = TRUE) * 3
     )
-  return(table)
+  return(tab)
 }
