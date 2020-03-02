@@ -2,8 +2,8 @@ library(dplyr)
 library(lintr)
 library(styler)
 
-#Aggregate summary table by year of NBA finals
-summary_table <- function(df){
+# Aggregate summary table by year of NBA finals
+summary_table <- function(df) {
   tab <- df %>%
     group_by(Year) %>%
     summarise(
