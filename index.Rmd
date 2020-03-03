@@ -14,8 +14,10 @@ source("chart1.R")
 source("chart2.R")
 source("chart3.R")
 ```
+
 ## Introductory Paragraph
-  The National Basketball Assoication (NBA) has been around for almost 75 year and over the years the game of basketball has changed in my ways. The names of teams have changed, the unfiforms have changed, and even the way the game is played. For our project, we wanted to focus on the gameplay patterns and stats that have stayed consistent and that have changed. The data sets that we will be using are: a shot log from the 2014-2015 season and statistics on the individual games for both teams playing in the NBA finals from 1980 to 2018 (two seperate datasets).
+
+The National Basketball Assoication (NBA) has been around for almost 75 year and over the years the game of basketball has changed in my ways. The names of teams have changed, the unfiforms have changed, and even the way the game is played. For our project, we wanted to focus on the gameplay patterns and stats that have stayed consistent and that have changed. The data sets that we will be using are: a shot log from the 2014-2015 season and statistics on the individual games for both teams playing in the NBA finals from 1980 to 2018 (two seperate datasets).
 <br> <br> The data for this research comes from:
 <br> Champions Data: https://www.kaggle.com/daverosenman/nba-finals-team-stats
 <br> Shot Logs data: https://www.kaggle.com/dansbecker/nba-shot-logs
@@ -29,6 +31,7 @@ stats_2010s <- tpa_tp_pts(champions, runnerups, 2010, 2018)
 The NBA was founded in 1946 but the 3-point field goal wasn't add until 1979. At the 1980 NBA championship game, there were only `r stats_1980s$tpa` attempted 3 point field goals and out of that `r stats_1980s$tpa` only `r stats_1980s$tp` were actually scored However, comparing those statistics to the 2018 NBA championship game, there is a dramatic difference. At 2018 championship, there were `r stats_2018$tpa` attempted 3 point field goals and `r stats_2018$tp` were made. Surprisingly, even though players have clearingly become more skilled at 3 point shoots, it hasn't made much of a difference in terms of the total points. From 1980 to 1989, the average points a team scored in a round of a championship game was `r stats_1980s$pts`. Today, from 2010 to 2018, the averge points a team scores in a round is `r stats_2010s$pts`. 
 
 ## Summary Table of the NBA Finals
+
 The table below breaks down data from each year's NBA finals series. All the totals are calculated from combining both the winning and losing teams.
 
 ```{r echo = FALSE}
@@ -40,7 +43,10 @@ kable(tab, col.names = c("Year", "Field Goal Percentage", "Field Goal Attempts",
 The chart reveals an upward trend in three point attempts over the years, starting in 1980 at only 20 attempted three point shots and going all the way up to `r tab[tab$tp_attempted == max(tab$tp_attempted), "tp_attempted"]` in `r tab[tab$tp_attempted == max(tab$tp_attempted), "Year"]`. Obviously, this means more players are taking advantage of the three point shot, especially in the championships. The total three point percentage also saw a steady increase, with the highest accuracy coming from the `r tab[tab$tp_percentage == max(tab$tp_percentage), "Year"]` championship. Not only are more players taking advantage of the three point shot now, but they have become much more accurate. Interestingly, we also see a slight inverse relationship between attepted field goals and attempted three point shots. Years with more attempted three points also had comparably fewer attempted field goals. We also see that the total number of free throw attempts remained relatively stable throughtout, suggesting that the rate of fouls committed was relatively constant. One high outlier is in `r tab[tab$ft_attempted == max(tab$ft_attempted), "Year"]` with a total of `r tab[tab$ft_attempted == max(tab$ft_attempted), "ft_attempted"]` attempted free throws, which is `r tab[tab$ft_attempted == max(tab$ft_attempted), "ft_attempted"] - tab[tab$ft_attempted == sort(tab$ft_attempted, T)[2], "ft_attempted"]` more than the next highest total free throw year.
 
 ## Charts
-Describe the purpose of each chart (e.g., "this chart was intended to show the relationship between..."), render each chart, and describe pertinent observations found in each chart
+
+=======
+
+## Chart 1
 
 ```{r echo = FALSE}
 chart1_function(champions)
@@ -48,5 +54,20 @@ chart1_function(champions)
 
 This chart was intended to highlight the relationship between the total amount of three point shots attempted by the NBA champion team in each distinct year between 1980 and 2018. Some interesting observations of this chart include the trend of an increasing amount of three point shots being taken as the years progress. Another observation is that while increased in the years between 1990 and 2000, there is a marked decrease in three point shots taken between the years 2000 and 2004. One last observation is the rather sudden increase from very few three points taken in 1991 to a larger amount in 1992 where the amount of threes taken never again dropped to what it was in years prior.
 
-=======
->>>>>>> fcd10fcd92599d03538634f59b64bb3535b8e221
+## Chart 2
+
+This chart is intended to show the relationship between assists and points in the NBA Finals. In the National Basketball Association (NBA), a player is credited with an assist if the player passes the ball directly to another teammate and the teammate scores the ball directly after. Assists are a huge component in the game, and can say a lot about how your team is playing. If your team as a whole is getting a lot of assists, it means your team is passing the ball well and usually moving it from side to side to get more open shots.
+
+```{r echo = FALSE}
+chart2_function(champions)
+```
+
+From the chart, you can see that there is a positive correlation between assists and points in the NBA finals games which is expected. As a team gathers more assists, it makes sense that their total points increase because an assist is counted when your teammate scores. This fact encourages teams to pass and get more assists, so they can outscore the other team and win in the finals when it counts the most. There are outliers where teams who have a lot assists do not have as much points and vive versa. This occurs because teams which shoot more three pointers will have more points even if they have less assists.
+
+## Chart 3
+
+```{r echo = FALSE}
+chart3_function(champions)
+```
+
+This chart is intended to highlight the distribution of points scored in final NBA games from the year 1980 to 2018. It counts the occurences of each time that a certain amount of points happens in a finals game. One interesting observation in this chart is that there is a higher frequency for points scored around the 100 to 110 point marks. Another observation is of the outlier data of one or more games having around 140 points, a significant margin above the majority of other games.
