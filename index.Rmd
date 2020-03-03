@@ -3,13 +3,16 @@ title: "Report Summary"
 author: "Back Group"
 output: html_document
 ---
-```{r, echo=FALSE, include=FALSE}
+```{r setup, include=FALSE}
 library(knitr)
-setwd(dir = "scripts")
-source("summary_info.R")
-source("table_summary.R")
 champions<- read.csv("data/championsdata.csv", stringsAsFactors = FALSE)
 runnerups <- read.csv("data/runnerupsdata.csv", stringsAsFactors = FALSE)
+setwd(dir = "scripts")
+source("summary_information.R")
+source("table_summary.R")
+source("chart1.R")
+source("chart2.R")
+source("chart3.R")
 ```
 ## Introductory Paragraph
   The National Basketball Assoication (NBA) has been around for almost 75 year and over the years the game of basketball has changed in my ways. The names of teams have changed, the unfiforms have changed, and even the way the game is played. For our project, we wanted to focus on the gameplay patterns and stats that have stayed consistent and that have changed. The data sets that we will be using are: a shot log from the 2014-2015 season and statistics on the individual games for both teams playing in the NBA finals from 1980 to 2018 (two seperate datasets).
@@ -38,5 +41,12 @@ The chart reveals an upward trend in three point attempts over the years, starti
 
 ## Charts
 Describe the purpose of each chart (e.g., "this chart was intended to show the relationship between..."), render each chart, and describe pertinent observations found in each chart
+
+```{r echo = FALSE}
+chart1_function(champions)
+```
+
+This chart was intended to highlight the relationship between the total amount of three point shots attempted by the NBA champion team in each distinct year between 1980 and 2018. Some interesting observations of this chart include the trend of an increasing amount of three point shots being taken as the years progress. Another observation is that while increased in the years between 1990 and 2000, there is a marked decrease in three point shots taken between the years 2000 and 2004. One last observation is the rather sudden increase from very few three points taken in 1991 to a larger amount in 1992 where the amount of threes taken never again dropped to what it was in years prior.
+
 =======
 >>>>>>> fcd10fcd92599d03538634f59b64bb3535b8e221
