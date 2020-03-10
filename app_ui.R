@@ -94,7 +94,19 @@ interactive3 <- tabPanel(
 takeaways <- tabPanel(
   "Takeaways",
   fluidPage(
-    
+    h1("What We Learned From This Project"),
+    h2("Takeaway 1"),
+    p("A description of the notable data-insight or pattern discovered in your project:
+        A specific piece of data, table, or chart that demonstrates the pattern/insight:
+        The broader implications of the insight:"),
+    h2("Takeaway 2"),
+    p("A description of the notable data-insight or pattern discovered in your project:
+        A specific piece of data, table, or chart that demonstrates the pattern/insight:
+        The broader implications of the insight:"),
+    h2("Takeaway 3"),
+    p("A description of the notable data-insight or pattern discovered in your project:
+        A specific piece of data, table, or chart that demonstrates the pattern/insight:
+        The broader implications of the insight:")
   )
 )
 
