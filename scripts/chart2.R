@@ -1,20 +1,19 @@
-# Load in packages
-library(dplyr)
+# Loads the necessary packages
 library(ggplot2)
-library(reshape2)
+library(dplyr)
+library(lintr)
 
-# Create a box plot function that takes in season statistics and playoff data
-chart3_function <- function(dfseason, dfplayoff) {
-  # Seperate the non-playoff teams and the playoff teams
-  chart_teams_notplayoffs <- anti_join(dfseason, dfplayoff, by = "Team")
-  chart_teams_inplayoffs <- semi_join(dfseason, dfplayoff, by = "Team")
-  # Create group variable to seperate the non-playoff and playoff teams 
-  chart_teams_notplayoffs$group <- "non-playoffs"
-  chart_teams_inplayoffs$group <- "playoffs"
-  # Combine teams that are non-playoff with teams in the playoff statistics 
-  combine <- rbind(chart_teams_inplayoffs, chart_teams_notplayoffs)
-  ggplot(combine, aes(x = factor(group), y = PTS)) +
-    geom_boxplot() +
-    labs(title = "Point Differential Between NBA Playoff and Non-Playoff Team",
-         x = "NBA Teams", y = "Total Points Scored")
+# Creates a function that returns a scatterplot with the x-axis as assists
+# and y-axis as points.
+chart2_function <- function(df) {
+  scatterplot <- ggplot(df) +
+    geom_point(mapping = aes_string(x = "AST", y = "PTS")) +
+    labs(
+      title = "Association Between Assists and Points",
+      x = "Assists",
+      y = "Points"
+    ) +
+    geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE,
+                mapping = aes_string(x = "AST", y = "PTS"))
+  return(scatterplot)
 }
