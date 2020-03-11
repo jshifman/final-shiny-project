@@ -71,7 +71,13 @@ interactive2_sidebar <- sidebarPanel(
 )
 
 interactive2_main <- mainPanel(
-  plotlyOutput("bar")
+  plotlyOutput("bar"),
+  p("This bar chart displays the total amount of defensive rebounds
+  accumulated by both teams in the championship series of the NBA Finals.
+  Each bar is seperated by game as to highlight the distinct games and their
+  rebounds from the greater series and its total amount of defensive rebounds.
+  There was no major change, in contrast to offensive stats, in the amount of
+  defensive rebounds over time.")
 )
 
 interactive2 <- tabPanel(
@@ -95,7 +101,12 @@ interactive3_sidebar <- sidebarPanel(
 )
 
 interactive3_main <- mainPanel(
-  plotOutput(outputId = "scatterplot")
+  plotOutput(outputId = "scatterplot"),
+  p("These scatterplots describe the relationship between the amount of
+  assists and points scored in the National Basketball Association (NBA)
+  Finals from 1980 to 2018. A majority of the scatterplots show a
+  linear relationship between assists and points which means that as
+  the number of assists increases, the amount of points increases as well.")
 )
 
 interactive3 <- tabPanel(

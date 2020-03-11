@@ -32,8 +32,7 @@ server <- function(input, output) {
            aes(x = Team, y = DRB, fill = Team)) +
       geom_bar(colour = "black", stat = "identity") +
       labs(
-        title = "Defensive Rebounds\n *Grouped by individual game
-        in each series",
+        title = "Defensive Rebounds",
         x = paste("Teams in the Championship for the year", input$picked_year),
         y = paste("Total Defensive Rebounds Scored in",
                   input$picked_year, "series")
