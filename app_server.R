@@ -16,14 +16,13 @@ server <- function(input, output) {
     pie_data1 <- as.data.frame(pie_data1)
     colnames(pie_data1) <- pie_data[["Year"]]
     pie_data1 <- mutate(pie_data1, shot = c("Free Throw", "Field Goal", "Three Pointer"))
-    # pie <- ggplot(pie_data1,
-    #                aes(x = "", y = !!as.name(input$final_year), fill = shot)) +
-    #   geom_bar(width = 1, stat = "identity") +
-    #   coord_polar("y", start = 0)
+    finals_year <- as.name(input$final_year)
     pie <- plot_ly(pie_data1,
                    labels = ~shot,
-                   values = !!as.name(~input$final_year),
+                   values = pie_data1[[finals_year]],
                    type = "pie")
+    pie <- pie %>%
+      layout(title = title)
     pie
   })
 }

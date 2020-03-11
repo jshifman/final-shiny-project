@@ -42,7 +42,10 @@ interactive1_sidebar <- sidebarPanel(
 )
 
 interactive1_main <- mainPanel(
-  plotlyOutput("pie")
+  plotlyOutput("pie"),
+  p("This chart shows the total number of shots taken of each type for each year 
+    of the NBA Finals. Each total is a combination of both the champions and the 
+    runner-ups. Over time, a greater percent of shots came from three pointers.")
 )
 
 interactive1 <- tabPanel(
