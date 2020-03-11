@@ -51,10 +51,10 @@ interactive1_main <- mainPanel(
 interactive1 <- tabPanel(
   "Finals by Shot",
   titlePanel("Total NBA Finals scoring Distripution"),
-  sidebarLayout(
-    interactive1_sidebar,
-    interactive1_main
-  )
+    sidebarLayout(
+      interactive1_sidebar,
+      interactive1_main
+      )
 )
 
 #2nd Inteactive Tab
