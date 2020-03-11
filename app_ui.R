@@ -15,16 +15,17 @@ intro <- tabPanel(
     the game is played. For our project, we wanted to focus on the gameplay
     patterns and stats that have stayed consistent and that have changed.
     Specfically, our project will be mainly focusing on the 3 point feild goal,
-    which wasn't added to the game until 1979. Today 3-pt shots are such an icon,
-    it's hard to imagine the NBA without it. In this project we explore how
-    players started taking an advantage of the new addition to the game, when
-    they started becoming more skilled with these shots, and how
-    the chance to score 3pts rather than 1 or 2 changed the scoring of the game
-    overall. The data sets that we will be using are: a shot log from the
-    2014-2015 season and statistics on the individual games for both teams 
+    which wasn't added to the game until 1979. Today 3-pt shots are such an
+    iconic, it's hard to imagine the NBA without it. In this project we explore
+    how players started taking an advantage of the new addition to the game,
+    when they started becoming more skilled with these shots, and how
+    the chance to score 3pts rather than 1pt or 2pts changed the scoring of
+    the game overall. The data sets that we will be using are: a shot log from
+    the 2014-2015 season and statistics on the individual games for both teams 
     playing in the NBA finals from 1980 to 2018 (two seperate datasets). The
     data for this research comes from:"),
-    a("Champions Data", href = "https://www.kaggle.com/daverosenman/nba-finals-team-stats"),
+    a("Champions Data", 
+      href = "https://www.kaggle.com/daverosenman/nba-finals-team-stats"),
     p("and"),
     a("Shot Logs", href = "https://www.kaggle.com/dansbecker/nba-shot-logs")
   )
