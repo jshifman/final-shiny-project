@@ -25,4 +25,15 @@ server <- function(input, output) {
       layout(title = title)
     pie
   })
+  
+  output$bar <- renderPlotly(
+    ggplot(data = filter(full_finals, Year == input$picked_year),
+           aes(x = Team, y = DRB, fill = Team)) +
+      geom_bar(colour = "black", stat = "identity") +
+      labs(
+        title = "Defensive Rebounds\n *Grouped by individual game in each series",
+        x = paste("Teams in the Championship for the year", input$picked_year),
+        y = paste("Total Defensive Rebounds Scored in", input$picked_year, "series")
+      )
+  )
 }

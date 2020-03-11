@@ -44,14 +44,15 @@ interactive1_sidebar <- sidebarPanel(
 
 interactive1_main <- mainPanel(
   plotlyOutput("pie"),
-  p("This chart shows the total number of shots taken of each type for each year 
-    of the NBA Finals. Each total is a combination of both the champions and the 
-    runner-ups. Over time, a greater percent of shots came from three pointers.")
+  p("This chart shows the total number of shots taken of each type for each 
+  year of the NBA Finals. Each total is a combination of both the champions
+  and the runner-ups. Over time, a greater percent of shots came from three
+  pointers.")
 )
 
 interactive1 <- tabPanel(
   "Finals by Shot",
-  titlePanel("Total NBA Finals scoring Distripution"),
+  titlePanel("Total NBA Finals Scoring Distripution"),
     sidebarLayout(
       interactive1_sidebar,
       interactive1_main
@@ -60,16 +61,22 @@ interactive1 <- tabPanel(
 
 #2nd Inteactive Tab
 interactive2_sidebar <- sidebarPanel(
-  
+  final_year <- sliderInput(
+    "picked_year",
+    label = "NBA Finals Year (1980-2018)",
+    min = 1980,
+    max = 2018,
+    value = 1980
+  )
 )
 
 interactive2_main <- mainPanel(
-  
+  plotlyOutput("bar")
 )
 
 interactive2 <- tabPanel(
-  "Tab 2 Name",
-  titlePanel("Title Panel Name"),
+  "Defensive Rebounding",
+  titlePanel("Total Defensive Rebounds Over the Years"),
   sidebarLayout(
     interactive2_sidebar,
     interactive2_main
@@ -100,13 +107,40 @@ takeaways <- tabPanel(
   fluidPage(
     h1("What We Learned From This Project"),
     h2("Takeaway 1"),
-    p("A description of the notable data-insight or pattern discovered in your project:
-        A specific piece of data, table, or chart that demonstrates the pattern/insight:
-        The broader implications of the insight:"),
+    p("Based on the Total NBA Finals scoring Distripution chart, there is a
+    pattern that was the year of the NBA Final increases, so does the
+    percentage of shots that were 3 pointers. In 1980 the total percentage was
+    only 0.0133%, which by 2000 jumped to 10.4%, and by 2018 3 point shots made
+    up 16% of all NBA Final shots. A broader implication of this insight how
+    coaches should train their players. In 1980, if your team wasn't
+    very skilled at 3 point shots, it wouldn't effect you odds of winning at
+    all. No one could make 3 pointers and no one was even attempting to make
+    them.However, today if a team doesn't frequently make 3 point shots, it
+    puts them at a great disadvantage because other teams rely on them. By 
+    knowing how common 3 pointers are, this allows coaches to get a sense on
+    where there team falls in comparsion to the rest of the league and 
+    determine how much time and effort should be put to improving the shot."),
     h2("Takeaway 2"),
-    p("A description of the notable data-insight or pattern discovered in your project:
-        A specific piece of data, table, or chart that demonstrates the pattern/insight:
-        The broader implications of the insight:"),
+    p("Contrary to offensive trends throughout the years, which have seen a
+    steady increase in farther shots taken and subsequently more made three's,
+    the defensive rebounding data highlights no such change. This shows how
+    defensive tendencies have more or less remained consistent through the 
+    years, regardless of changes in playstyle.In accordance with this finding,
+    the data points from the years 1980, 2000, and 2016 highlight this 
+    steadfast and unchanging defensive stat. These data points were chosen
+    because they are spaced throughout the range and they each were years with
+    a championship series with 6 games. In 1980 there was a total of 371 
+    defensive rebounds between both teams while in 2000, twenty years later,
+    there were a total of 370 defensive rebounds. Additionally, after another
+    15 years, in 2015, there were a total of 412 defensive rebounds. These 
+    numbers highlight the near perfect consistent amount of defensive rebounds
+    across a championship series of 6 games, regardless of the year. The 
+    broader implication of this finding extends to the NBA, and how perhaps a
+    culture within the league has pushed the evolution of offense to one of
+    greater lengths, all while seemingly ignoring the timeless and steadfast
+    strategies teams employ for defense. This culture, according to the data,
+    has valued the development of offense over defense 
+    for the past 40 years."),
     h2("Takeaway 3"),
     p("A description of the notable data-insight or pattern discovered in your project:
         A specific piece of data, table, or chart that demonstrates the pattern/insight:
