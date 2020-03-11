@@ -59,16 +59,22 @@ interactive1 <- tabPanel(
 
 #2nd Inteactive Tab
 interactive2_sidebar <- sidebarPanel(
-  
+  final_year <- sliderInput(
+    "picked_year",
+    label = "NBA Finals Year (1980-2018)",
+    min = 1980,
+    max = 2018,
+    value = 1980
+  )
 )
 
 interactive2_main <- mainPanel(
-  
+  plotlyOutput("bar")
 )
 
 interactive2 <- tabPanel(
-  "Tab 2 Name",
-  titlePanel("Title Panel Name"),
+  "Defensive Rebounding",
+  titlePanel("Total Defensive Rebounds Over the Years"),
   sidebarLayout(
     interactive2_sidebar,
     interactive2_main
@@ -103,9 +109,16 @@ takeaways <- tabPanel(
         A specific piece of data, table, or chart that demonstrates the pattern/insight:
         The broader implications of the insight:"),
     h2("Takeaway 2"),
-    p("A description of the notable data-insight or pattern discovered in your project:
-        A specific piece of data, table, or chart that demonstrates the pattern/insight:
-        The broader implications of the insight:"),
+    p("Contrary to offensive trends throughout the years, which have seen a steady increase in farther shots taken and subsequently more made three's,
+    the defensive rebounding data highlights no such change. This shows how defensive tendencies have more or less remained consistent through the years,
+    regardless of changes in playstyle.In accordance with this finding, the data points from the years 1980, 2000, and 2016 highlight this steadfast and
+    unchanging defensive stat. These data points were chosen because they are spaced throughout the range and they each were years with a championship series
+    with 6 games. In 1980 there was a total of 371 defensive rebounds between both teams while in 2000, twenty years later, there were a total of 370
+    defensive rebounds. Additionally, after another 15 years, in 2015, there were a total of 412 defensive rebounds. These numbers highlight the near perfect
+    consistent amount of defensive rebounds across a championship series of 6 games, regardless of the year. The broader implication of this finding extends
+    to the NBA, and how perhaps a culture within the league has pushed the evolution of offense to one of greater lengths, all while seemingly ignoring the 
+    timeless and steadfast strategies teams employ for defense. This culture, according to the data, has valued the development of offense over defense 
+    for the past 40 years."),
     h2("Takeaway 3"),
     p("A description of the notable data-insight or pattern discovered in your project:
         A specific piece of data, table, or chart that demonstrates the pattern/insight:
